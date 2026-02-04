@@ -1,9 +1,9 @@
 # The Brain-Predicted DD and MS-age Gaps
 ## About 🔍
 ...
-![Alt text](assets/Figure_1.svg)
+![Brain-age and DD gaps](images/Figure_1.svg)
 
-![Alt text](assets/SupplementaryFigure_1.tif)
+![MS-age gap](images/SupplementaryFigure_1.tif)
 
 ## Installation 🛠️
 ...
