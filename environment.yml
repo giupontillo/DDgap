@@ -1,5 +1,7 @@
 name: brainDDgap
 channels:
+  - pytorch
+  - conda-forge
   - defaults
 dependencies:
   - scikit-image=0.19.2
@@ -22,4 +24,8 @@ dependencies:
   - scikit-learn=1.1.2
   - matplotlib=3.5.1
   - cudatoolkit=11.3
-prefix: brainDDgap
+  - pip
+  - pip:
+      - monai
+      - nibabel
+      - -e .
