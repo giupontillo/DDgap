@@ -10,7 +10,6 @@ import torch
 import monai
 import urllib.request
 
-
 # Define paths relative to this script
 WEIGHTS_DIR = Path(__name__).resolve().parent.parent / "weights"
 

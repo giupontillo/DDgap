@@ -1,7 +1,7 @@
 # The Brain-Predicted DD and MS-age Gaps 🧠
 ## About 💡
 ...
-![Brain-age and DD gaps](images/Figure_1.svg)
+![Main figure](images/Figure_1.svg)
 
 ![MS-age gap](images/SupplementaryFigure_1.png)
 
@@ -30,15 +30,19 @@ predict_brainage path/to/scan.nii.gz --modality T1w --do_preprocessing
 
 # Prediction with GBP Map generation
 predict_brainDD path/to/scan.nii.gz --modality FLAIR --do_preprocessing --guided_backpropagation
-
 ```
 
 **Arguments**
-Argument    Description
-input_image Path to the NIfTI (.nii.gz) file.
-`--modality` Choose between T1w or FLAIR.
-`--do_preprocessing`    do preprocessing
-`--guided_backpropagation` generate GBP map showing predictive regions.
+- input_image: Path to the NIfTI (.nii.gz) file.
+- `--modality`: Choose between T1w or FLAIR.
+- `--do_preprocessing`: do preprocessing.
+- `--guided_backpropagation`: generate GBP map showing predictive regions.
+- `--output`: output folder where GMP map and preprocessed image are saved (only works with --guided_backpropagation, default folder is the same as the input image)
+
+### Run directly in Python
+```
+from brainDDgap.preprocess import preprocess_t1w
+```
 
 ## Project Structure 📂 
 ```
@@ -52,6 +56,7 @@ input_image Path to the NIfTI (.nii.gz) file.
 ├── environment.yml         # Conda environment definition
 └── pyproject.toml          # Python package configuration
 ```
+
 ## Citation 📝
 If you use this code or the pre-trained models in your research, please cite:
 
