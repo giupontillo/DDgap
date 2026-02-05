@@ -11,12 +11,12 @@ def main():
 
     # parse options
     # 1. Parse Options
-    parser = argparse.ArgumentParser(description="Predict age from a single brain MRI scan")
+    parser = argparse.ArgumentParser(description="Predict MS-age from a single brain MRI scan")
     parser.add_argument("input_image", type=str, help="Path to the input NIfTI image")
     parser.add_argument("--modality", "-m", type=str, choices=["t1w", "flair"], default="t1w", help="Scan modality (determines weights used)")
     parser.add_argument("--do_preprocessing", "-p", action="store_true", help="Apply minimum preprocessingto input image (N4 bias field correction, skull-stripping, affine registration to MNI space)")
     parser.add_argument("--guided_backpropagation", "-g", action="store_true", help="Generate saliency maps for interpretability using guided backpropagation")
-    parser.add_argument("--output", "-o", type=str, default=Path(args.input_image).parent, help="Output folder where to save preprocessed images and GBP maps (only used if GBP is performed)")
+    parser.add_argument("--output", "-o", type=str, default=Path(args.input_image).parent, help="Output folder where preprocessed images and GBP maps are saved (only used if GBP is performed)")
     args = parser.parse_args()
 
     # 2. Prepare Data
@@ -62,7 +62,7 @@ def main():
             gbp_map = gbp(input_tensor).cpu().numpy()
             preproc_img = input_tensor.cpu().numpy()
             output_folder = Path(args.output)
-            out_name_gbp_map = output_folder / f"{Path(img_path).stem}_GBPmap.nii.gz"
+            out_name_gbp_map = output_folder / f"{Path(img_path).stem}_MSage-GBP.nii.gz"
             out_name_preproc_img = output_folder / f"{Path(img_path).stem}_preproc.nii.gz"
             nib.save(nib.Nifti1Image(gbp_map.squeeze(), np.eye(4)), str(out_name_gbp_map))
             nib.save(nib.Nifti1Image(preproc_img.squeeze(), np.eye(4)), str(out_name_preproc_img))
@@ -75,10 +75,8 @@ def main():
         predicted_age = output.item()  
 
     # 5. Output Result
-    print("-" * 30)
-    print(f"Input Image: {img_path}")
-    print(f"Predicted Brain Age: {predicted_age:.2f} years")
-    print("-" * 30)
+    print("Image,Modality,Brain-predictedMSage_years")
+    print(f"{img_path},{args.modality},{predicted_age:.2f}")
     
 if __name__ == "__main__":
     main()
