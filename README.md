@@ -4,7 +4,7 @@
 ![Main figure](images/Figure_1.svg)
 
 **Multiple Sclerosis-age gap**
-![MS-age gap](images/SupplementaryFigure_1.png)
+![MS-age gap](images/SupplementaryFigure_1.svg)
 
 ## Installation 📦
 ### 1. Clone the Repository
