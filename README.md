@@ -1,14 +1,14 @@
 # The Brain-Predicted DD and MS-age Gaps 🧠
 ## About 💡
-...
+**Disease Duration gap**
 ![Main figure](images/Figure_1.svg)
 
+**Multiple Sclerosis-age gap**
 ![MS-age gap](images/SupplementaryFigure_1.png)
 
 ## Installation 📦
 ### 1. Clone the Repository
 ```
-Bash
 git clone https://github.com/giupontillo/brainDDgap.git
 cd brainDDgap
 ```
